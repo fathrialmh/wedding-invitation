@@ -85,6 +85,7 @@ async function main() {
   }
   await download(audio.url, audio.dest);
   console.log('All assets downloaded.');
+  console.log('Run "npm run compress-images" to optimize images for faster loading.');
 }
 
 main().catch((err) => {

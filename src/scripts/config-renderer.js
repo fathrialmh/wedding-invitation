@@ -48,6 +48,11 @@ function bindLinks() {
   });
 }
 
+function galleryThumbSrc(filename) {
+  const base = filename.replace(/\.(jpe?g|png)$/i, '');
+  return `/assets/images/thumbs/${base}.webp`;
+}
+
 function renderGallery() {
   const grid = document.getElementById('gallery-grid');
   if (!grid) return;
@@ -55,7 +60,7 @@ function renderGallery() {
     .map(
       (img, i) => `
     <a href="/assets/images/${img}" data-pswp-width="1200" data-pswp-height="1800" data-index="${i}">
-      <img src="/assets/images/${img}" alt="Gallery ${i + 1}" loading="lazy" />
+      <img src="${galleryThumbSrc(img)}" alt="Gallery ${i + 1}" loading="lazy" decoding="async" />
     </a>`
     )
     .join('');
@@ -68,7 +73,7 @@ function renderStoryCarousel() {
     .map(
       (img) => `
     <div class="swiper-slide">
-      <img src="/assets/images/${img}" alt="" loading="lazy" />
+      <img src="${galleryThumbSrc(img)}" alt="" loading="lazy" decoding="async" />
     </div>`
     )
     .join('');

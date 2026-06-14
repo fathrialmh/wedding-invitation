@@ -5,15 +5,17 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run compress-images && vite build",
     "preview": "vite preview",
-    "download-assets": "node scripts/download-assets.mjs"
+    "download-assets": "node scripts/download-assets.mjs",
+    "compress-images": "node scripts/compress-images.mjs"
   },
   "dependencies": {
     "photoswipe": "^5.4.4",
     "swiper": "^11.2.6"
   },
   "devDependencies": {
+    "sharp": "^0.35.1",
     "vite": "^6.2.0"
   }
 }
