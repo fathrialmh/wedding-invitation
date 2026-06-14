@@ -163,7 +163,7 @@
           <h2 class="gallery-title elementor-invisible" data-animation="zoomIn" data-bind="gallery.title"></h2>
           <div id="gallery-grid" class="gallery-grid"></div>
           <div class="video-wrap elementor-invisible" data-animation="fadeInUp" style="margin-top:1.5rem">
-            <iframe src="https://www.youtube.com/embed/XzZrcYZtsnU" allowfullscreen loading="lazy" title="Prewedding"></iframe>
+            <iframe src="https://www.youtube.com/embed/WDQGR9Gqcho" allowfullscreen loading="lazy" title="Prewedding"></iframe>
           </div>
           <p class="prewedding-title elementor-invisible" data-animation="fadeInUp">
             <span data-bind="gallery.preweddingTitle"></span>
@@ -197,10 +197,10 @@
                 <div class="bank-holder" data-bind="gift.physical.recipient"></div>
                 <div class="bank-holder" data-bind="gift.physical.address"></div>
               </div>
-              <div class="card-info gift-attention" style="transition-delay:1.6s">
+              <!-- <div class="card-info gift-attention" style="transition-delay:1.6s">
                 <strong>ⓘ ATTENTION!</strong><br><br>
                 <span data-bind="gift.attention"></span>
-              </div>
+              </div> -->
             </div>
           </div>
         </section>
@@ -225,6 +225,14 @@
                   </div>
                   <button type="submit" class="btn" data-bind="wishes.submitLabel">SEND</button>
                 </form>
+                <div class="wishes-feed">
+                  <div class="wishes-feed-header">
+                    <h3 class="wishes-feed-title" data-bind="wishes.feedTitle"></h3>
+                    <span id="wishes-count" class="wishes-count" hidden>0</span>
+                  </div>
+                  <p id="wishes-empty" class="wishes-empty" data-bind="wishes.emptyLabel"></p>
+                  <div id="wishes-list" class="wishes-list" aria-live="polite"></div>
+                </div>
               </div>
             </div>
           </div>

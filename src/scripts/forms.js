@@ -1,6 +1,8 @@
 import { showToast } from './gift.js';
+import { addWish, initWishes } from './wishes.js';
 
 export function initForms() {
+  initWishes();
   const rsvpForm = document.getElementById('rsvp-form');
   if (rsvpForm) {
     rsvpForm.addEventListener('submit', (e) => {
@@ -20,6 +22,7 @@ export function initForms() {
         showToast('Mohon isi nama dan ucapan', 'error');
         return;
       }
+      addWish(name, msg);
       showToast('✓ Ucapan & doa Anda berhasil dikirim. Terima kasih!');
       wishesForm.reset();
     });
