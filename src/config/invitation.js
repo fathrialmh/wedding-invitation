@@ -206,7 +206,7 @@ export const invitation = {
     ayatPhoto: '/assets/images/SPW03712.jpg',
     bridePhoto: '/assets/images/SPW03665.jpg',
     groomPhoto: '/assets/images/SPW03754.jpg',
-    saveDatePhoto: '/assets/images/SPW03705.jpg',
+    saveDatePhoto: '/assets/images/SPW03728.jpg',
     rsvpPhoto: '/assets/images/SPW03712.jpg',
   },
 };
