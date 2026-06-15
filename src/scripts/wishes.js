@@ -1,4 +1,9 @@
 import { invitation } from '../config/invitation.js';
+import {
+  fetchWishesFromGoogleScript,
+  isGoogleScriptConfigured,
+  submitWishToGoogleScript,
+} from './google-script.js';
 
 const STORAGE_KEY = 'wedding-wishes';
 
@@ -31,6 +36,10 @@ function writeLocalWishes(wishes) {
 }
 
 async function fetchSharedWishes() {
+  if (isGoogleScriptConfigured()) {
+    return fetchWishesFromGoogleScript();
+  }
+
   const url = invitation.wishes?.sharedUrl;
   if (!url) return [];
 
@@ -117,7 +126,7 @@ export function renderWishesList(wishes) {
 export async function loadAllWishes() {
   const seed = (invitation.wishes?.seed || []).map(normalizeWish).filter(Boolean);
   const shared = await fetchSharedWishes();
-  const local = readLocalWishes();
+  const local = isGoogleScriptConfigured() ? [] : readLocalWishes();
   return mergeWishes(seed, shared, local);
 }
 
@@ -128,6 +137,13 @@ export async function initWishes() {
 }
 
 export async function addWish(name, message) {
+  if (isGoogleScriptConfigured()) {
+    await submitWishToGoogleScript(name, message);
+    const wishes = await loadAllWishes();
+    renderWishesList(wishes);
+    return wishes[0] || null;
+  }
+
   const wish = normalizeWish({
     id: createId(),
     name,
