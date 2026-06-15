@@ -39,12 +39,12 @@
 
         <!-- AYAT SUCI -->
         <section id="ayatsuci" class="section">
-          <div class="section-bg"></div>
-          <div class="section-overlay"></div>
-          <div class="section-inner text-center elementor-invisible animated-slow" data-animation="fadeIn" data-animation-delay="300">
+          <div class="ayat-container text-center elementor-invisible animated-slow" data-animation="fadeIn" data-animation-delay="300">
             <img class="ayat-photo" data-src="assets.ayatPhoto" alt="" />
-            <p class="ayat-text" data-bind="ayat.text"></p>
-            <p class="ayat-source"><b data-bind="ayat.source">QS Ar-Rum 21</b></p>
+            <div class="ayat-text-block">
+              <p class="ayat-text" data-bind="ayat.text"></p>
+              <p class="ayat-source"><b data-bind="ayat.source">QS Ar-Rum 21</b></p>
+            </div>
           </div>
         </section>
 
@@ -63,7 +63,7 @@
                 <h3 class="couple-short elementor-invisible" data-animation="fadeInDown" data-bind="couple.brideShort"></h3>
                 <h3 class="couple-full elementor-invisible animated-slow" data-animation="fadeIn" data-bind="couple.brideFull"></h3>
                 <p class="couple-parents elementor-invisible animated-slow" data-animation="fadeInUp" data-animation-delay="400" data-bind="couple.brideParentsLabel"></p>
-                <a class="couple-ig elementor-invisible animated-slow" data-animation="zoomIn" data-animation-delay="500" data-href="links.instagram" data-external="true" aria-label="Instagram">
+                <a class="couple-ig elementor-invisible animated-slow" data-animation="zoomIn" data-animation-delay="500" href="https://www.instagram.com/innekedwicahya/" data-external="true" aria-label="Instagram">
                   <i class="fab fa-instagram"></i>
                 </a>
               </div>
@@ -75,7 +75,7 @@
                 <h3 class="couple-short elementor-invisible" data-animation="fadeInDown" data-bind="couple.groomShort"></h3>
                 <h3 class="couple-full elementor-invisible animated-slow" data-animation="fadeIn" data-bind="couple.groomFull"></h3>
                 <p class="couple-parents elementor-invisible animated-slow" data-animation="fadeInUp" data-animation-delay="400" data-bind="couple.parentsLabel"></p>
-                <a class="couple-ig elementor-invisible animated-slow" data-animation="zoomIn" data-animation-delay="500" data-href="links.instagram" data-external="true" aria-label="Instagram">
+                <a class="couple-ig elementor-invisible animated-slow" data-animation="zoomIn" data-animation-delay="500" href="https://www.instagram.com/fathrialmuhamadhamdani/" target="_blank" aria-label="Instagram">
                   <i class="fab fa-instagram"></i>
                 </a>
               </div>
@@ -84,18 +84,18 @@
         </section>
 
         <!-- SAVE THE DATE -->
-        <section class="section save-date elementor-invisible animated-slow" data-animation="fadeInUp" data-animation-delay="300">
+        <section class="section save-date animated-slow" data-animation="fadeInUp" data-animation-delay="300">
           <h2 class="save-date-title elementor-invisible" data-animation="fadeInDown" data-bind="saveTheDate.title"></h2>
           <p class="save-date-sub elementor-invisible" data-animation="fadeInUp" data-bind="saveTheDate.subtitle"></p>
           <p class="save-date-couple elementor-invisible animated-slow" data-animation="fadeInDown" data-bind="saveTheDate.couple"></p>
           <p class="save-date-date elementor-invisible" data-animation="fadeInDown" data-bind="saveTheDate.date"></p>
-          <div id="countdown" class="countdown elementor-invisible animated-slow" data-animation="fadeInUp"></div>
-          <img class="save-date-photo" data-src="assets.saveDatePhoto" alt="" />
+          <div id="countdown" class="countdown animated-slow" data-animation="fadeInUp"></div>
         </section>
 
         <!-- EVENTS -->
         <section id="event" class="section elementor-invisible animated-slow" data-animation="fadeInUp">
           <div class="event-block">
+            <img class="save-date-photo" data-src="assets.saveDatePhoto" alt="" />
             <img class="event-deco-top" data-src="assets.eventTop" alt="" />
             <div class="event-body">
               <div class="event-card">
@@ -197,10 +197,6 @@
                 <div class="bank-holder" data-bind="gift.physical.recipient"></div>
                 <div class="bank-holder" data-bind="gift.physical.address"></div>
               </div>
-              <!-- <div class="card-info gift-attention" style="transition-delay:1.6s">
-                <strong>ⓘ ATTENTION!</strong><br><br>
-                <span data-bind="gift.attention"></span>
-              </div> -->
             </div>
           </div>
         </section>
@@ -249,8 +245,6 @@
 
         <div class="footer-spacer"></div>
       </main>
-
-      <div class="main-spacer"></div>
     </div>
   </div>
 

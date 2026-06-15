@@ -1,3 +1,5 @@
+import { getObserverRoot, scrollToElement } from './scroll-utils.js';
+
 const sections = ['cover', 'profil', 'event', 'rsvp', 'wishes'];
 
 export function initNavigation() {
@@ -8,7 +10,7 @@ export function initNavigation() {
       const href = link.getAttribute('href');
       if (href?.startsWith('#')) {
         e.preventDefault();
-        document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+        scrollToElement(document.querySelector(href), { behavior: 'smooth' });
       }
     });
   });
@@ -24,7 +26,7 @@ export function initNavigation() {
         }
       });
     },
-    { threshold: 0.3 }
+    { threshold: 0.3, root: getObserverRoot() }
   );
 
   sections.forEach((id) => {

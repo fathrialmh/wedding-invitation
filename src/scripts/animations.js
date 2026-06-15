@@ -1,3 +1,5 @@
+import { getObserverRoot } from './scroll-utils.js';
+
 const animationMap = {
   fadeInUp: 'elementor-animation-fadeInUp',
   fadeInDown: 'elementor-animation-fadeInDown',
@@ -29,7 +31,7 @@ export function initAnimations() {
         observer.unobserve(el);
       });
     },
-    { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+    { threshold: 0.15, rootMargin: '0px 0px -40px 0px', root: getObserverRoot() }
   );
 
   elements.forEach((el) => {

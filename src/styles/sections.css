@@ -9,14 +9,15 @@
 
 #cover .section-bg {
   background-image: var(--cover-bg);
-  background-size: 100% auto;
+  background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
 }
 
 .cover-content {
+  position: relative;
+  z-index: 1;
   width: 100%;
-  min-height: 100vh;
   min-height: 100dvh;
   padding: clamp(2rem, 8vw, 3rem) var(--section-padding-x) calc(5rem + var(--safe-bottom));
   text-align: center;
@@ -70,15 +71,29 @@
 }
 
 /* Ayat Suci */
-#ayatsuci .section-bg {
-  background-image: var(--ayat-bg);
+#ayatsuci {
+  background: transparent;
+  padding: var(--section-padding-y) var(--section-padding-x);
+}
+
+.ayat-container {
+  position: relative;
+  z-index: 1;
+  background: var(--color-light);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(74, 64, 56, 0.1);
 }
 
 .ayat-photo {
-  width: 70%;
-  max-width: 280px;
-  margin: 0 auto 1.5rem;
-  border-radius: 4px;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  border-radius: 0;
+}
+
+.ayat-text-block {
+  padding: clamp(1.25rem, 5vw, 2rem) clamp(1rem, 4vw, 1.5rem);
 }
 
 .ayat-text {
@@ -261,10 +276,29 @@
   color: var(--color-brown);
 }
 
+.save-date-photo-wrap {
+  position: relative;
+  line-height: 0;
+  width: 100%;
+  margin: 2rem 0 0 0;
+}
+
 .save-date-photo {
-  width: min(80%, 320px);
-  margin: 2rem auto 0;
-  border-radius: 4px;
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  margin: 0;
+  border-radius: 0;
+}
+
+.save-date-photo-wrap .event-deco-top {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+  pointer-events: none;
 }
 
 /* Events */
@@ -273,12 +307,11 @@
   flex-direction: column;
   gap: 0;
   padding: 0;
-  margin-top: clamp(-6rem, -18vw, -3rem);
+  margin-top: 0;
   max-width: 100%;
   line-height: 0;
 }
 
-.event-deco-top,
 .event-deco-bottom {
   display: block;
   width: 100%;
@@ -924,23 +957,12 @@
 }
 
 @media (min-width: 600px) {
-  .couple-cards {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 1.5rem;
-  }
-
   .couple-card {
-    flex: 1 1 200px;
-    max-width: 260px;
+    max-width: 280px;
   }
 
   .couple-amp {
-    flex: 0 0 auto;
-    align-self: center;
-    margin: 0;
+    margin: 0.25rem 0;
   }
 }
 
