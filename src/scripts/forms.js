@@ -1,6 +1,6 @@
 import { showToast } from './gift.js';
 import { isGoogleScriptConfigured, submitRsvpToGoogleScript } from './google-script.js';
-import { addWish, initWishes } from './wishes.js';
+import { addWish, initWishes, renderWishesList } from './wishes.js';
 
 function setSubmitting(form, isSubmitting) {
   const button = form.querySelector('[type="submit"]');
@@ -12,7 +12,7 @@ function setSubmitting(form, isSubmitting) {
 }
 
 export function initForms() {
-  initWishes();
+  initWishes().catch(() => renderWishesList([]));
 
   const rsvpForm = document.getElementById('rsvp-form');
   if (rsvpForm) {

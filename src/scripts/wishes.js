@@ -37,7 +37,11 @@ function writeLocalWishes(wishes) {
 
 async function fetchSharedWishes() {
   if (isGoogleScriptConfigured()) {
-    return fetchWishesFromGoogleScript();
+    try {
+      return await fetchWishesFromGoogleScript();
+    } catch {
+      return [];
+    }
   }
 
   const url = invitation.wishes?.sharedUrl;

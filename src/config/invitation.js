@@ -1,7 +1,7 @@
 export const invitation = {
   // Paste your Google Apps Script Web App URL here after deployment.
   googleScript: {
-    url: 'https://script.google.com/macros/s/AKfycbyg9BiRdV2ykoKQhyXEzVjbzRHlRsKdiUmZG0AD3annrkCJFn_BGL6b9LWOp21xvt5HEQ/exec',
+    url: 'https://script.google.com/macros/s/AKfycbzXYTAxsuQ_MV_Dd3lEfD7arkVXX_03PVECpKFowJ9uGp3DW2AZqcYMcUPDlb9Ca27j7A/exec',
   },
 
   meta: {
