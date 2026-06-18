@@ -31,6 +31,9 @@ function doPost(e) {
 
     if (data.action === 'rsvp') {
       appendRsvp(data.name, data.guestCount, data.attendance);
+      if (data.message && String(data.message).trim()) {
+        appendWish(data.name, data.message);
+      }
       return jsonResponse({ success: true });
     }
 

@@ -43,19 +43,26 @@ export async function submitWishToGoogleScript(name, message) {
   return parseJsonResponse(res);
 }
 
-export async function submitRsvpToGoogleScript({ name, guestCount, attendance }) {
+export async function submitRsvpToGoogleScript({ name, guestCount, attendance, message }) {
   const url = getScriptUrl();
   if (!url) throw new Error('Google Script URL is not configured');
+
+  const payload = {
+    action: 'rsvp',
+    name,
+    guestCount,
+    attendance,
+  };
+
+  const trimmedMessage = message?.trim();
+  if (trimmedMessage) {
+    payload.message = trimmedMessage;
+  }
 
   const res = await fetch(url, {
     method: 'POST',
     headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-    body: JSON.stringify({
-      action: 'rsvp',
-      name,
-      guestCount,
-      attendance,
-    }),
+    body: JSON.stringify(payload),
   });
 
   if (!res.ok) throw new Error('Failed to send RSVP');

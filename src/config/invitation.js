@@ -80,6 +80,7 @@ export const invitation = {
     title: 'rsvp',
     description:
       'Merupakan suatu kehormatan dan kebahagiaan bagi kami sekeluarga apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kedua mempelai. Atas kehadiran serta doa restu, kami ucapkan terima kasih.',
+    messageLabel: 'Berikan ucapan & doa (opsional):',
     submitLabel: 'SUBMIT',
     attendanceOptions: ['Hadir', 'Maaf, saya tidak bisa hadir'],
     guestCounts: [0, 1, 2],
@@ -164,12 +165,6 @@ export const invitation = {
   },
 
   wishes: {
-    title: 'Ucapan & Doa',
-    description:
-      'Menjadi sebuah kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dalam hari bahagia ini. Terima kasih atas segala ucapan, doa, dan perhatian yang diberikan. See you on our big day!',
-    nameLabel: 'Tuliskan nama anda:',
-    messageLabel: 'Berikan ucapan & doa:',
-    submitLabel: 'SEND',
     feedTitle: 'Ucapan dari tamu',
     emptyLabel: 'Belum ada ucapan. Jadilah yang pertama!',
     sharedUrl: '/data/wishes.json',

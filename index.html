@@ -119,7 +119,7 @@
           </div>
         </section>
 
-        <!-- RSVP -->
+        <!-- RSVP & Wishes -->
         <section id="rsvp" class="section">
           <div class="section-inner rsvp-inner elementor-invisible animated-slow" data-animation="fadeInUp">
             <div class="rsvp-card">
@@ -139,8 +139,23 @@
                   <label>Konfirmasi Kehadiran <span class="required" aria-hidden="true">*</span></label>
                   <div id="rsvp-attendance" class="radio-group"></div>
                 </div>
+                <div class="form-group">
+                  <label for="rsvp-message" data-bind="rsvp.messageLabel"></label>
+                  <div class="rsvp-textarea-wrap">
+                    <span class="rsvp-char-limit" aria-hidden="true">1000</span>
+                    <textarea id="rsvp-message" name="message" placeholder="....." maxlength="1000"></textarea>
+                  </div>
+                </div>
                 <button type="submit" class="btn rsvp-submit" data-bind="rsvp.submitLabel">SUBMIT</button>
               </form>
+              <div id="wishes" class="wishes-feed">
+                <div class="wishes-feed-header">
+                  <h3 class="wishes-feed-title" data-bind="wishes.feedTitle"></h3>
+                  <span id="wishes-count" class="wishes-count" hidden>0</span>
+                </div>
+                <p id="wishes-empty" class="wishes-empty" data-bind="wishes.emptyLabel"></p>
+                <div id="wishes-list" class="wishes-list" aria-live="polite"></div>
+              </div>
             </div>
           </div>
         </section>
@@ -201,39 +216,6 @@
           </div>
         </section>
 
-        <!-- WISHES -->
-        <section id="wishes" class="section wishes-section">
-          <div class="section-bg"></div>
-          <div class="section-inner elementor-invisible animated-slow" data-animation="fadeInUp">
-            <div class="wishes-card">
-              <div class="wishes-header">
-                <h2 class="wishes-title" data-bind="wishes.title"></h2>
-              </div>
-              <div class="wishes-body">
-                <p class="wishes-desc" data-bind="wishes.description"></p>
-                <form id="wishes-form" class="wishes-form">
-                  <label data-bind="wishes.nameLabel"></label>
-                  <input type="text" name="wishes-name" placeholder="...*" required maxlength="50" />
-                  <label data-bind="wishes.messageLabel"></label>
-                  <div class="wishes-textarea-wrap">
-                    <span class="wishes-char-limit" aria-hidden="true">1000</span>
-                    <textarea name="wishes-message" placeholder="....." required maxlength="1000"></textarea>
-                  </div>
-                  <button type="submit" class="btn" data-bind="wishes.submitLabel">SEND</button>
-                </form>
-                <div class="wishes-feed">
-                  <div class="wishes-feed-header">
-                    <h3 class="wishes-feed-title" data-bind="wishes.feedTitle"></h3>
-                    <span id="wishes-count" class="wishes-count" hidden>0</span>
-                  </div>
-                  <p id="wishes-empty" class="wishes-empty" data-bind="wishes.emptyLabel"></p>
-                  <div id="wishes-list" class="wishes-list" aria-live="polite"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         <!-- CLOSING
         <section class="section closing-section elementor-invisible animated-slow" data-animation="slideInUp">
           <h2 class="closing-couple" data-bind="closing.couple"></h2>
@@ -267,9 +249,6 @@
     </a>
     <a href="#rsvp" aria-label="RSVP">
       <svg viewBox="0 0 60 60"><path d="M44,0H16a4,4,0,0,0-4,4V8.78A2.985,2.985,0,0,0,11,11v9.439L8.566,22.306A4.022,4.022,0,0,0,7,25.48V47a4,4,0,0,0,4,4h1v5a4,4,0,0,0,4,4H44a4,4,0,0,0,4-4V51h1a4,4,0,0,0,4-4V25.48a4.025,4.025,0,0,0-1.566-3.174L49,20.439V11a2.985,2.985,0,0,0-1-2.22V4A4,4,0,0,0,44,0Z"/></svg>
-    </a>
-    <a href="#wishes" aria-label="Wishes">
-      <svg viewBox="0 0 512 512"><path d="M407.815,0h-303.63c-21.38,0-41.736,6.707-58.87,19.394c-3.341,2.474-4.044,7.188-1.57,10.529s7.188,4.042,10.529,1.57 c14.522-10.754,31.781-16.439,49.911-16.439h303.629c46.296,0,83.96,37.665,83.96,83.96v199.144 c0,46.296-37.665,83.96-83.96,83.96H279.48c-3.101,0-6.097,1.296-8.217,3.553l-103.068,109.59 c-2.225,2.364-4.805,1.693-5.81,1.296c-1.006-0.398-3.345-1.676-3.345-4.924V393.4c0-6.22-5.06-11.28-11.28-11.28h-43.575 c-46.296,0-83.961-37.665-83.961-83.96V99.014c0-17.032,5.069-33.429,14.66-47.417c2.35-3.429,1.477-8.113-1.951-10.464 c-3.427-2.351-8.114-1.476-10.464,1.951C11.153,59.59,5.171,78.93,5.171,99.014v199.144c0,54.596,44.418,99.014,99.015,99.014 h39.801v94.461c0,8.398,5.044,15.824,12.851,18.918c2.461,0.975,5.017,1.449,7.543,1.449c5.489,0,10.84-2.237,14.78-6.425 l101.95-108.402h126.704c54.596,0,99.014-44.418,99.014-99.014V99.014C506.829,44.418,462.412,0,407.815,0z"/><path d="M364.119,120.935c-26.124-26.125-68.635-26.123-94.761,0l-13.119,13.12c-0.035,0.035-0.143,0.143-0.344,0.143 c-0.2,0-0.307-0.106-0.342-0.143l-12.911-12.91c-26.125-26.125-68.635-26.124-94.76,0c-26.125,26.125-26.125,68.636,0,94.761 l97.035,97.035c2.935,2.935,6.837,4.551,10.987,4.551s8.053-1.617,10.987-4.552l53.325-53.334c2.94-2.94,2.94-7.706-0.001-10.644 c-2.94-2.939-7.707-2.94-10.644,0.001l-53.325,53.334c-0.035,0.035-0.143,0.141-0.342,0.141c-0.201,0-0.308-0.106-0.343-0.143 l-97.035-97.035c-20.256-20.257-20.256-53.215,0-73.472s53.215-20.255,73.471,0l12.91,12.91c2.935,2.935,6.837,4.552,10.987,4.552 c4.151,0,8.052-1.616,10.988-4.551l13.12-13.12c20.26-20.255,53.216-20.255,73.472,0c20.256,20.256,20.256,53.214,0,73.472 l-22.472,22.477c-2.94,2.94-2.94,7.706,0.001,10.644c2.94,2.939,7.706,2.94,10.644-0.001l22.473-22.476 C390.244,189.57,390.244,147.06,364.119,120.935z"/></svg>
     </a>
   </nav>
 

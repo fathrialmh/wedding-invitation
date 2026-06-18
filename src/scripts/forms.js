@@ -22,6 +22,7 @@ export function initForms() {
       const name = rsvpForm.querySelector('[name="nama"]')?.value?.trim();
       const guestCount = rsvpForm.querySelector('[name="orang"]')?.value;
       const attendance = rsvpForm.querySelector('[name="attendance"]:checked')?.value;
+      const message = rsvpForm.querySelector('[name="message"]')?.value?.trim() || '';
 
       if (!name || guestCount === undefined || guestCount === '' || !attendance) {
         showToast('Mohon lengkapi semua field RSVP', 'error');
@@ -29,6 +30,20 @@ export function initForms() {
       }
 
       if (!isGoogleScriptConfigured()) {
+        if (message) {
+          setSubmitting(rsvpForm, true);
+          try {
+            await addWish(name, message);
+            showToast('✓ Ucapan & doa Anda berhasil dikirim. Terima kasih!');
+            rsvpForm.reset();
+          } catch {
+            showToast('Gagal mengirim ucapan. Coba lagi.', 'error');
+          } finally {
+            setSubmitting(rsvpForm, false);
+          }
+          return;
+        }
+
         showToast('RSVP belum terhubung ke Google Sheet. Atur googleScript.url di config.', 'error');
         return;
       }
@@ -40,40 +55,23 @@ export function initForms() {
           name,
           guestCount: Number(guestCount),
           attendance,
+          message,
         });
-        showToast('✓ Terima kasih! Konfirmasi kehadiran Anda telah tercatat.');
+
+        if (message) {
+          await initWishes();
+        }
+
+        showToast(
+          message
+            ? '✓ Terima kasih! Konfirmasi kehadiran dan ucapan Anda telah tercatat.'
+            : '✓ Terima kasih! Konfirmasi kehadiran Anda telah tercatat.'
+        );
         rsvpForm.reset();
       } catch {
         showToast('Gagal mengirim RSVP. Coba lagi.', 'error');
       } finally {
         setSubmitting(rsvpForm, false);
-      }
-    });
-  }
-
-  const wishesForm = document.getElementById('wishes-form');
-  if (wishesForm) {
-    wishesForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      const name = wishesForm.querySelector('[name="wishes-name"]')?.value?.trim();
-      const msg = wishesForm.querySelector('[name="wishes-message"]')?.value?.trim();
-
-      if (!name || !msg) {
-        showToast('Mohon isi nama dan ucapan', 'error');
-        return;
-      }
-
-      setSubmitting(wishesForm, true);
-
-      try {
-        await addWish(name, msg);
-        showToast('✓ Ucapan & doa Anda berhasil dikirim. Terima kasih!');
-        wishesForm.reset();
-      } catch {
-        showToast('Gagal mengirim ucapan. Coba lagi.', 'error');
-      } finally {
-        setSubmitting(wishesForm, false);
       }
     });
   }

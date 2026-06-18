@@ -1,6 +1,6 @@
 import { getObserverRoot, scrollToElement } from './scroll-utils.js';
 
-const sections = ['cover', 'profil', 'event', 'rsvp', 'wishes'];
+const sections = ['cover', 'profil', 'event', 'rsvp'];
 
 export function initNavigation() {
   const links = document.querySelectorAll('.bottom-nav a');

@@ -471,6 +471,64 @@
   letter-spacing: 0.05em;
 }
 
+.rsvp-form textarea {
+  width: 100%;
+  padding: 11px 18px;
+  border: none;
+  border-radius: 20px;
+  background: var(--color-white);
+  color: var(--color-text);
+  box-shadow: none;
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.rsvp-textarea-wrap {
+  position: relative;
+}
+
+.rsvp-textarea-wrap textarea {
+  min-height: 110px;
+  padding-top: 1.75rem;
+}
+
+.rsvp-char-limit {
+  position: absolute;
+  top: 0.55rem;
+  right: 1rem;
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  color: rgba(74, 64, 56, 0.45);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.rsvp-card .wishes-feed {
+  margin-top: 1.75rem;
+  padding-top: 1.35rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  text-align: left;
+}
+
+.rsvp-card .wishes-feed-title {
+  color: var(--color-white);
+}
+
+.rsvp-card .wishes-empty {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.rsvp-card .wishes-count {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--color-white);
+}
+
+.rsvp-card .wish-item {
+  background: rgba(255, 255, 255, 0.92);
+}
+
 /* Streaming */
 .streaming-section {
   text-align: center;
