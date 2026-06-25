@@ -61,7 +61,7 @@ export const invitation = {
     akad: {
       title: 'AKAD NIKAH',
       date: 'Sabtu, 04 Juli 2026',
-      time: '08.00 WIB',
+      time: '08:00 WIB',
       venue: 'GRAHA PINDAD',
       address: 'Jl. Gatot Subroto No.517, Sukapura, Kec. Kiaracondong, Kota Bandung, Jawa Barat 40285',
       mapsUrl: 'https://maps.app.goo.gl/dU344KyC98LDDXU36',
@@ -69,7 +69,7 @@ export const invitation = {
     resepsi: {
       title: 'RESEPSI PERNIKAHAN',
       date: 'Sabtu, 04 Juli 2026',
-      time: '11.00 WIB',
+      time: '11:00 - 14:00 WIB',
       venue: 'GRAHA PINDAD',
       address: 'Jl. Gatot Subroto No.517, Sukapura, Kec. Kiaracondong, Kota Bandung, Jawa Barat 40285',
       mapsUrl: 'https://maps.app.goo.gl/dU344KyC98LDDXU36',
